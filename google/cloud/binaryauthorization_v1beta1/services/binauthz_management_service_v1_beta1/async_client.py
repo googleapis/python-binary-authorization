@@ -299,7 +299,7 @@ class BinauthzManagementServiceV1Beta1AsyncClient:
         self,
         request: service.UpdatePolicyRequest = None,
         *,
-        policy: resources.Policy = None,
+        policy_: resources.Policy = None,
         retry: retries.Retry = gapic_v1.method.DEFAULT,
         timeout: float = None,
         metadata: Sequence[Tuple[str, str]] = (),
@@ -317,7 +317,7 @@ class BinauthzManagementServiceV1Beta1AsyncClient:
             request (:class:`google.cloud.binaryauthorization_v1beta1.types.UpdatePolicyRequest`):
                 The request object. Request message for
                 [BinauthzManagementService.UpdatePolicy][].
-            policy (:class:`google.cloud.binaryauthorization_v1beta1.types.Policy`):
+            policy_ (:class:`google.cloud.binaryauthorization_v1beta1.types.Policy`):
                 Required. A new or updated
                 [policy][google.cloud.binaryauthorization.v1beta1.Policy]
                 value. The service will overwrite the [policy
@@ -325,7 +325,7 @@ class BinauthzManagementServiceV1Beta1AsyncClient:
                 field with the resource name in the request URL, in the
                 format ``projects/*/policy``.
 
-                This corresponds to the ``policy`` field
+                This corresponds to the ``policy_`` field
                 on the ``request`` instance; if ``request`` is provided, this
                 should not be set.
 
@@ -344,7 +344,7 @@ class BinauthzManagementServiceV1Beta1AsyncClient:
         # Create or coerce a protobuf request object.
         # Sanity check: If we got a request object, we should *not* have
         # gotten any keyword arguments that map to the request.
-        has_flattened_params = any([policy])
+        has_flattened_params = any([policy_])
         if request is not None and has_flattened_params:
             raise ValueError(
                 "If the `request` argument is set, then none of "
@@ -356,8 +356,8 @@ class BinauthzManagementServiceV1Beta1AsyncClient:
         # If we have keyword arguments corresponding to fields on the
         # request, apply these.
 
-        if policy is not None:
-            request.policy = policy
+        if policy_ is not None:
+            request.policy_ = policy_
 
         # Wrap the RPC method; this adds retry and timeout information,
         # and friendly error handling.
