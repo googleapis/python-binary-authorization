@@ -13,6 +13,7 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 #
+from .continuous_validation_logging import ContinuousValidationEvent
 from .resources import (
     AdmissionRule,
     AdmissionWhitelistPattern,
@@ -34,6 +35,7 @@ from .service import (
 )
 
 __all__ = (
+    "ContinuousValidationEvent",
     "AdmissionRule",
     "AdmissionWhitelistPattern",
     "Attestor",

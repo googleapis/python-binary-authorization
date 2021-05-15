@@ -11,8 +11,8 @@
       "git": {
         "name": "googleapis",
         "remote": "https://github.com/googleapis/googleapis.git",
-        "sha": "83a7e1c8c2f7421ded45ed323eb1fda99ef5ea46",
-        "internalRef": "372197450"
+        "sha": "bceaea9f824a0d3600cd6a868ea457ac18980049",
+        "internalRef": "373173593"
       }
     }
   ],
@@ -107,6 +107,7 @@
     "google/cloud/binaryauthorization_v1beta1/services/binauthz_management_service_v1_beta1/transports/grpc.py",
     "google/cloud/binaryauthorization_v1beta1/services/binauthz_management_service_v1_beta1/transports/grpc_asyncio.py",
     "google/cloud/binaryauthorization_v1beta1/types/__init__.py",
+    "google/cloud/binaryauthorization_v1beta1/types/continuous_validation_logging.py",
     "google/cloud/binaryauthorization_v1beta1/types/resources.py",
     "google/cloud/binaryauthorization_v1beta1/types/service.py",
     "mypy.ini",

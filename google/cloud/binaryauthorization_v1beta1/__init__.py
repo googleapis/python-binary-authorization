@@ -21,6 +21,7 @@ from .services.binauthz_management_service_v1_beta1 import (
     BinauthzManagementServiceV1Beta1AsyncClient,
 )
 
+from .types.continuous_validation_logging import ContinuousValidationEvent
 from .types.resources import AdmissionRule
 from .types.resources import AdmissionWhitelistPattern
 from .types.resources import Attestor
@@ -43,6 +44,7 @@ __all__ = (
     "Attestor",
     "AttestorPublicKey",
     "BinauthzManagementServiceV1Beta1Client",
+    "ContinuousValidationEvent",
     "CreateAttestorRequest",
     "DeleteAttestorRequest",
     "GetAttestorRequest",
