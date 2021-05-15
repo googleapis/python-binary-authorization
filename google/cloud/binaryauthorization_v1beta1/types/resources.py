@@ -1,5 +1,4 @@
 # -*- coding: utf-8 -*-
-
 # Copyright 2020 Google LLC
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
@@ -14,23 +13,21 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 #
-
 import proto  # type: ignore
-
 
 from google.protobuf import timestamp_pb2 as timestamp  # type: ignore
 
 
 __protobuf__ = proto.module(
-    package="google.cloud.binaryauthorization.v1beta1",
+    package='google.cloud.binaryauthorization.v1beta1',
     manifest={
-        "Policy",
-        "AdmissionWhitelistPattern",
-        "AdmissionRule",
-        "Attestor",
-        "UserOwnedDrydockNote",
-        "PkixPublicKey",
-        "AttestorPublicKey",
+        'Policy',
+        'AdmissionWhitelistPattern',
+        'AdmissionRule',
+        'Attestor',
+        'UserOwnedDrydockNote',
+        'PkixPublicKey',
+        'AttestorPublicKey',
     },
 )
 
@@ -76,34 +73,46 @@ class Policy(proto.Message):
             Output only. Time when the policy was last
             updated.
     """
-
     class GlobalPolicyEvaluationMode(proto.Enum):
         r""""""
         GLOBAL_POLICY_EVALUATION_MODE_UNSPECIFIED = 0
         ENABLE = 1
         DISABLE = 2
 
-    name = proto.Field(proto.STRING, number=1)
-
-    description = proto.Field(proto.STRING, number=6)
-
+    name = proto.Field(
+        proto.STRING,
+        number=1,
+    )
+    description = proto.Field(
+        proto.STRING,
+        number=6,
+    )
     global_policy_evaluation_mode = proto.Field(
-        proto.ENUM, number=7, enum=GlobalPolicyEvaluationMode,
+        proto.ENUM,
+        number=7,
+        enum=GlobalPolicyEvaluationMode,
     )
-
     admission_whitelist_patterns = proto.RepeatedField(
-        proto.MESSAGE, number=2, message="AdmissionWhitelistPattern",
+        proto.MESSAGE,
+        number=2,
+        message='AdmissionWhitelistPattern',
     )
-
     cluster_admission_rules = proto.MapField(
-        proto.STRING, proto.MESSAGE, number=3, message="AdmissionRule",
+        proto.STRING,
+        proto.MESSAGE,
+        number=3
+        message='AdmissionRule',
     )
-
     default_admission_rule = proto.Field(
-        proto.MESSAGE, number=4, message="AdmissionRule",
+        proto.MESSAGE,
+        number=4,
+        message='AdmissionRule',
     )
-
-    update_time = proto.Field(proto.MESSAGE, number=5, message=timestamp.Timestamp,)
+    update_time = proto.Field(
+        proto.MESSAGE,
+        number=5,
+        message=timestamp.Timestamp,
+    )
 
 
 class AdmissionWhitelistPattern(proto.Message):
@@ -120,7 +129,10 @@ class AdmissionWhitelistPattern(proto.Message):
             ``registry/`` part.
     """
 
-    name_pattern = proto.Field(proto.STRING, number=1)
+    name_pattern = proto.Field(
+        proto.STRING,
+        number=1,
+    )
 
 
 class AdmissionRule(proto.Message):
@@ -156,7 +168,6 @@ class AdmissionRule(proto.Message):
             Required. The action when a pod creation is
             denied by the admission rule.
     """
-
     class EvaluationMode(proto.Enum):
         r""""""
         EVALUATION_MODE_UNSPECIFIED = 0
@@ -172,11 +183,20 @@ class AdmissionRule(proto.Message):
         ENFORCED_BLOCK_AND_AUDIT_LOG = 1
         DRYRUN_AUDIT_LOG_ONLY = 2
 
-    evaluation_mode = proto.Field(proto.ENUM, number=1, enum=EvaluationMode,)
-
-    require_attestations_by = proto.RepeatedField(proto.STRING, number=2)
-
-    enforcement_mode = proto.Field(proto.ENUM, number=3, enum=EnforcementMode,)
+    evaluation_mode = proto.Field(
+        proto.ENUM,
+        number=1,
+        enum=EvaluationMode,
+    )
+    require_attestations_by = proto.RepeatedField(
+        proto.STRING,
+        number=2,
+    )
+    enforcement_mode = proto.Field(
+        proto.ENUM,
+        number=3,
+        enum=EnforcementMode,
+    )
 
 
 class Attestor(proto.Message):
@@ -199,15 +219,25 @@ class Attestor(proto.Message):
             updated.
     """
 
-    name = proto.Field(proto.STRING, number=1)
-
-    description = proto.Field(proto.STRING, number=6)
-
-    user_owned_drydock_note = proto.Field(
-        proto.MESSAGE, number=3, oneof="attestor_type", message="UserOwnedDrydockNote",
+    name = proto.Field(
+        proto.STRING,
+        number=1,
     )
-
-    update_time = proto.Field(proto.MESSAGE, number=4, message=timestamp.Timestamp,)
+    description = proto.Field(
+        proto.STRING,
+        number=6,
+    )
+    user_owned_drydock_note = proto.Field(
+        proto.MESSAGE,
+        number=3,
+        oneof='attestor_type',
+        message='UserOwnedDrydockNote',
+    )
+    update_time = proto.Field(
+        proto.MESSAGE,
+        number=4,
+        message=timestamp.Timestamp,
+    )
 
 
 class UserOwnedDrydockNote(proto.Message):
@@ -251,13 +281,19 @@ class UserOwnedDrydockNote(proto.Message):
             email based on a different naming pattern.
     """
 
-    note_reference = proto.Field(proto.STRING, number=1)
-
-    public_keys = proto.RepeatedField(
-        proto.MESSAGE, number=2, message="AttestorPublicKey",
+    note_reference = proto.Field(
+        proto.STRING,
+        number=1,
     )
-
-    delegation_service_account_email = proto.Field(proto.STRING, number=3)
+    public_keys = proto.RepeatedField(
+        proto.MESSAGE,
+        number=2,
+        message='AttestorPublicKey',
+    )
+    delegation_service_account_email = proto.Field(
+        proto.STRING,
+        number=3,
+    )
 
 
 class PkixPublicKey(proto.Message):
@@ -277,7 +313,6 @@ class PkixPublicKey(proto.Message):
             ``public_key_pem`` (i.e. this algorithm must match that of
             the public key).
     """
-
     class SignatureAlgorithm(proto.Enum):
         r"""Represents a signature algorithm and other information
         necessary to verify signatures with a given public key. This is
@@ -300,9 +335,15 @@ class PkixPublicKey(proto.Message):
         ECDSA_P384_SHA384 = 10
         ECDSA_P521_SHA512 = 11
 
-    public_key_pem = proto.Field(proto.STRING, number=1)
-
-    signature_algorithm = proto.Field(proto.ENUM, number=2, enum=SignatureAlgorithm,)
+    public_key_pem = proto.Field(
+        proto.STRING,
+        number=1,
+    )
+    signature_algorithm = proto.Field(
+        proto.ENUM,
+        number=2,
+        enum=SignatureAlgorithm,
+    )
 
 
 class AttestorPublicKey(proto.Message):
@@ -341,16 +382,24 @@ class AttestorPublicKey(proto.Message):
             public key.
     """
 
-    comment = proto.Field(proto.STRING, number=1)
-
-    id = proto.Field(proto.STRING, number=2)
-
-    ascii_armored_pgp_public_key = proto.Field(
-        proto.STRING, number=3, oneof="public_key"
+    comment = proto.Field(
+        proto.STRING,
+        number=1,
     )
-
+    id = proto.Field(
+        proto.STRING,
+        number=2,
+    )
+    ascii_armored_pgp_public_key = proto.Field(
+        proto.STRING,
+        number=3,
+        oneof='public_key',
+    )
     pkix_public_key = proto.Field(
-        proto.MESSAGE, number=5, oneof="public_key", message="PkixPublicKey",
+        proto.MESSAGE,
+        number=5,
+        oneof='public_key',
+        message='PkixPublicKey',
     )
 
 
