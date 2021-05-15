@@ -53,7 +53,7 @@ class UpdatePolicyRequest(proto.Message):
     r"""Request message for [BinauthzManagementService.UpdatePolicy][].
 
     Attributes:
-        policy (google.cloud.binaryauthorization_v1beta1.types.Policy):
+        policy_ (google.cloud.binaryauthorization_v1beta1.types.Policy):
             Required. A new or updated
             [policy][google.cloud.binaryauthorization.v1beta1.Policy]
             value. The service will overwrite the [policy
@@ -62,7 +62,7 @@ class UpdatePolicyRequest(proto.Message):
             format ``projects/*/policy``.
     """
 
-    policy = proto.Field(proto.MESSAGE, number=1, message=resources.Policy,)
+    policy_ = proto.Field(proto.MESSAGE, number=1, message=resources.Policy,)
 
 
 class CreateAttestorRequest(proto.Message):
