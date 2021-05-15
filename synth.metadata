@@ -11,8 +11,8 @@
       "git": {
         "name": "googleapis",
         "remote": "https://github.com/googleapis/googleapis.git",
-        "sha": "bceaea9f824a0d3600cd6a868ea457ac18980049",
-        "internalRef": "373173593"
+        "sha": "162641cfe5573c648df679a6dd30385650a08704",
+        "internalRef": "373400747"
       }
     }
   ],
@@ -91,7 +91,6 @@
     "docs/binaryauthorization_v1beta1/types.rst",
     "docs/conf.py",
     "docs/multiprocessing.rst",
-    "examples/feature_fragments",
     "google/cloud/binaryauthorization/__init__.py",
     "google/cloud/binaryauthorization/py.typed",
     "google/cloud/binaryauthorization_v1beta1/__init__.py",
