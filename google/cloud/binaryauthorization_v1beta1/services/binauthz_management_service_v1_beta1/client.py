@@ -395,8 +395,7 @@ class BinauthzManagementServiceV1Beta1Client(
 
         Args:
             request (google.cloud.binaryauthorization_v1beta1.types.GetPolicyRequest):
-                The request object.
-                Request message for
+                The request object. Request message for
                 [BinauthzManagementService.GetPolicy][].
             name (str):
                 Required. The resource name of the
@@ -475,8 +474,7 @@ class BinauthzManagementServiceV1Beta1Client(
 
         Args:
             request (google.cloud.binaryauthorization_v1beta1.types.UpdatePolicyRequest):
-                The request object.
-                Request message for
+                The request object. Request message for
                 [BinauthzManagementService.UpdatePolicy][].
             policy_ (google.cloud.binaryauthorization_v1beta1.types.Policy):
                 Required. A new or updated
@@ -563,8 +561,7 @@ class BinauthzManagementServiceV1Beta1Client(
 
         Args:
             request (google.cloud.binaryauthorization_v1beta1.types.CreateAttestorRequest):
-                The request object.
-                Request message for
+                The request object. Request message for
                 [BinauthzManagementService.CreateAttestor][].
             parent (str):
                 Required. The parent of this
@@ -663,8 +660,7 @@ class BinauthzManagementServiceV1Beta1Client(
 
         Args:
             request (google.cloud.binaryauthorization_v1beta1.types.GetAttestorRequest):
-                The request object.
-                Request message for
+                The request object. Request message for
                 [BinauthzManagementService.GetAttestor][].
             name (str):
                 Required. The name of the
@@ -741,8 +737,7 @@ class BinauthzManagementServiceV1Beta1Client(
 
         Args:
             request (google.cloud.binaryauthorization_v1beta1.types.UpdateAttestorRequest):
-                The request object.
-                Request message for
+                The request object. Request message for
                 [BinauthzManagementService.UpdateAttestor][].
             attestor (google.cloud.binaryauthorization_v1beta1.types.Attestor):
                 Required. The updated
@@ -822,8 +817,7 @@ class BinauthzManagementServiceV1Beta1Client(
 
         Args:
             request (google.cloud.binaryauthorization_v1beta1.types.ListAttestorsRequest):
-                The request object.
-                Request message for
+                The request object. Request message for
                 [BinauthzManagementService.ListAttestors][].
             parent (str):
                 Required. The resource name of the project associated
@@ -909,8 +903,7 @@ class BinauthzManagementServiceV1Beta1Client(
 
         Args:
             request (google.cloud.binaryauthorization_v1beta1.types.DeleteAttestorRequest):
-                The request object.
-                Request message for
+                The request object. Request message for
                 [BinauthzManagementService.DeleteAttestor][].
             name (str):
                 Required. The name of the

@@ -14,12 +14,13 @@
 # limitations under the License.
 #
 
-from google.cloud.binaryauthorization_v1beta1.services.binauthz_management_service_v1_beta1.async_client import (
-    BinauthzManagementServiceV1Beta1AsyncClient,
-)
 from google.cloud.binaryauthorization_v1beta1.services.binauthz_management_service_v1_beta1.client import (
     BinauthzManagementServiceV1Beta1Client,
 )
+from google.cloud.binaryauthorization_v1beta1.services.binauthz_management_service_v1_beta1.async_client import (
+    BinauthzManagementServiceV1Beta1AsyncClient,
+)
+
 from google.cloud.binaryauthorization_v1beta1.types.resources import AdmissionRule
 from google.cloud.binaryauthorization_v1beta1.types.resources import (
     AdmissionWhitelistPattern,
@@ -41,21 +42,21 @@ from google.cloud.binaryauthorization_v1beta1.types.service import UpdateAttesto
 from google.cloud.binaryauthorization_v1beta1.types.service import UpdatePolicyRequest
 
 __all__ = (
+    "BinauthzManagementServiceV1Beta1Client",
+    "BinauthzManagementServiceV1Beta1AsyncClient",
     "AdmissionRule",
     "AdmissionWhitelistPattern",
     "Attestor",
     "AttestorPublicKey",
-    "BinauthzManagementServiceV1Beta1AsyncClient",
-    "BinauthzManagementServiceV1Beta1Client",
+    "PkixPublicKey",
+    "Policy",
+    "UserOwnedDrydockNote",
     "CreateAttestorRequest",
     "DeleteAttestorRequest",
     "GetAttestorRequest",
     "GetPolicyRequest",
     "ListAttestorsRequest",
     "ListAttestorsResponse",
-    "PkixPublicKey",
-    "Policy",
     "UpdateAttestorRequest",
     "UpdatePolicyRequest",
-    "UserOwnedDrydockNote",
 )
