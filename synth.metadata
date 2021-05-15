@@ -4,7 +4,7 @@
       "git": {
         "name": ".",
         "remote": "https://github.com/googleapis/python-binary-authorization.git",
-        "sha": "82b3583c8dbc897dbb192ffc2051de5169d934c2"
+        "sha": "996f5010afd4372d625a9accc57647bac46770a8"
       }
     },
     {
