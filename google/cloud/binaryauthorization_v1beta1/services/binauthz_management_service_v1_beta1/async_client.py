@@ -1,5 +1,4 @@
 # -*- coding: utf-8 -*-
-
 # Copyright 2020 Google LLC
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
@@ -14,7 +13,6 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 #
-
 from collections import OrderedDict
 import functools
 import re
@@ -22,10 +20,10 @@ from typing import Dict, Sequence, Tuple, Type, Union
 import pkg_resources
 
 import google.api_core.client_options as ClientOptions  # type: ignore
-from google.api_core import exceptions  # type: ignore
+from google.api_core import exceptions as core_exceptions  # type: ignore
 from google.api_core import gapic_v1  # type: ignore
 from google.api_core import retry as retries  # type: ignore
-from google.auth import credentials  # type: ignore
+from google.auth import credentials as ga_credentials  # type: ignore
 from google.oauth2 import service_account  # type: ignore
 
 from google.cloud.binaryauthorization_v1beta1.services.binauthz_management_service_v1_beta1 import (
@@ -33,8 +31,7 @@ from google.cloud.binaryauthorization_v1beta1.services.binauthz_management_servi
 )
 from google.cloud.binaryauthorization_v1beta1.types import resources
 from google.cloud.binaryauthorization_v1beta1.types import service
-from google.protobuf import timestamp_pb2 as timestamp  # type: ignore
-
+from google.protobuf import timestamp_pb2  # type: ignore
 from .transports.base import (
     BinauthzManagementServiceV1Beta1Transport,
     DEFAULT_CLIENT_INFO,
@@ -68,35 +65,30 @@ class BinauthzManagementServiceV1Beta1AsyncClient:
     parse_policy_path = staticmethod(
         BinauthzManagementServiceV1Beta1Client.parse_policy_path
     )
-
     common_billing_account_path = staticmethod(
         BinauthzManagementServiceV1Beta1Client.common_billing_account_path
     )
     parse_common_billing_account_path = staticmethod(
         BinauthzManagementServiceV1Beta1Client.parse_common_billing_account_path
     )
-
     common_folder_path = staticmethod(
         BinauthzManagementServiceV1Beta1Client.common_folder_path
     )
     parse_common_folder_path = staticmethod(
         BinauthzManagementServiceV1Beta1Client.parse_common_folder_path
     )
-
     common_organization_path = staticmethod(
         BinauthzManagementServiceV1Beta1Client.common_organization_path
     )
     parse_common_organization_path = staticmethod(
         BinauthzManagementServiceV1Beta1Client.parse_common_organization_path
     )
-
     common_project_path = staticmethod(
         BinauthzManagementServiceV1Beta1Client.common_project_path
     )
     parse_common_project_path = staticmethod(
         BinauthzManagementServiceV1Beta1Client.parse_common_project_path
     )
-
     common_location_path = staticmethod(
         BinauthzManagementServiceV1Beta1Client.common_location_path
     )
@@ -153,7 +145,7 @@ class BinauthzManagementServiceV1Beta1AsyncClient:
     def __init__(
         self,
         *,
-        credentials: credentials.Credentials = None,
+        credentials: ga_credentials.Credentials = None,
         transport: Union[
             str, BinauthzManagementServiceV1Beta1Transport
         ] = "grpc_asyncio",
@@ -192,7 +184,6 @@ class BinauthzManagementServiceV1Beta1AsyncClient:
             google.auth.exceptions.MutualTlsChannelError: If mutual TLS transport
                 creation failed for any reason.
         """
-
         self._client = BinauthzManagementServiceV1Beta1Client(
             credentials=credentials,
             transport=transport,
@@ -235,7 +226,6 @@ class BinauthzManagementServiceV1Beta1AsyncClient:
                 This corresponds to the ``name`` field
                 on the ``request`` instance; if ``request`` is provided, this
                 should not be set.
-
             retry (google.api_core.retry.Retry): Designation of what errors, if any,
                 should be retried.
             timeout (float): The timeout for this request.
@@ -262,7 +252,6 @@ class BinauthzManagementServiceV1Beta1AsyncClient:
 
         # If we have keyword arguments corresponding to fields on the
         # request, apply these.
-
         if name is not None:
             request.name = name
 
@@ -299,7 +288,7 @@ class BinauthzManagementServiceV1Beta1AsyncClient:
         self,
         request: service.UpdatePolicyRequest = None,
         *,
-        policy_: resources.Policy = None,
+        policy: resources.Policy = None,
         retry: retries.Retry = gapic_v1.method.DEFAULT,
         timeout: float = None,
         metadata: Sequence[Tuple[str, str]] = (),
@@ -317,7 +306,7 @@ class BinauthzManagementServiceV1Beta1AsyncClient:
             request (:class:`google.cloud.binaryauthorization_v1beta1.types.UpdatePolicyRequest`):
                 The request object. Request message for
                 [BinauthzManagementService.UpdatePolicy][].
-            policy_ (:class:`google.cloud.binaryauthorization_v1beta1.types.Policy`):
+            policy (:class:`google.cloud.binaryauthorization_v1beta1.types.Policy`):
                 Required. A new or updated
                 [policy][google.cloud.binaryauthorization.v1beta1.Policy]
                 value. The service will overwrite the [policy
@@ -325,10 +314,9 @@ class BinauthzManagementServiceV1Beta1AsyncClient:
                 field with the resource name in the request URL, in the
                 format ``projects/*/policy``.
 
-                This corresponds to the ``policy_`` field
+                This corresponds to the ``policy`` field
                 on the ``request`` instance; if ``request`` is provided, this
                 should not be set.
-
             retry (google.api_core.retry.Retry): Designation of what errors, if any,
                 should be retried.
             timeout (float): The timeout for this request.
@@ -344,7 +332,7 @@ class BinauthzManagementServiceV1Beta1AsyncClient:
         # Create or coerce a protobuf request object.
         # Sanity check: If we got a request object, we should *not* have
         # gotten any keyword arguments that map to the request.
-        has_flattened_params = any([policy_])
+        has_flattened_params = any([policy])
         if request is not None and has_flattened_params:
             raise ValueError(
                 "If the `request` argument is set, then none of "
@@ -355,9 +343,8 @@ class BinauthzManagementServiceV1Beta1AsyncClient:
 
         # If we have keyword arguments corresponding to fields on the
         # request, apply these.
-
-        if policy_ is not None:
-            request.policy_ = policy_
+        if policy is not None:
+            request.policy = policy
 
         # Wrap the RPC method; this adds retry and timeout information,
         # and friendly error handling.
@@ -441,7 +428,6 @@ class BinauthzManagementServiceV1Beta1AsyncClient:
                 This corresponds to the ``attestor`` field
                 on the ``request`` instance; if ``request`` is provided, this
                 should not be set.
-
             retry (google.api_core.retry.Retry): Designation of what errors, if any,
                 should be retried.
             timeout (float): The timeout for this request.
@@ -469,7 +455,6 @@ class BinauthzManagementServiceV1Beta1AsyncClient:
 
         # If we have keyword arguments corresponding to fields on the
         # request, apply these.
-
         if parent is not None:
             request.parent = parent
         if attestor_id is not None:
@@ -524,7 +509,6 @@ class BinauthzManagementServiceV1Beta1AsyncClient:
                 This corresponds to the ``name`` field
                 on the ``request`` instance; if ``request`` is provided, this
                 should not be set.
-
             retry (google.api_core.retry.Retry): Designation of what errors, if any,
                 should be retried.
             timeout (float): The timeout for this request.
@@ -552,7 +536,6 @@ class BinauthzManagementServiceV1Beta1AsyncClient:
 
         # If we have keyword arguments corresponding to fields on the
         # request, apply these.
-
         if name is not None:
             request.name = name
 
@@ -615,7 +598,6 @@ class BinauthzManagementServiceV1Beta1AsyncClient:
                 This corresponds to the ``attestor`` field
                 on the ``request`` instance; if ``request`` is provided, this
                 should not be set.
-
             retry (google.api_core.retry.Retry): Designation of what errors, if any,
                 should be retried.
             timeout (float): The timeout for this request.
@@ -643,7 +625,6 @@ class BinauthzManagementServiceV1Beta1AsyncClient:
 
         # If we have keyword arguments corresponding to fields on the
         # request, apply these.
-
         if attestor is not None:
             request.attestor = attestor
 
@@ -704,7 +685,6 @@ class BinauthzManagementServiceV1Beta1AsyncClient:
                 This corresponds to the ``parent`` field
                 on the ``request`` instance; if ``request`` is provided, this
                 should not be set.
-
             retry (google.api_core.retry.Retry): Designation of what errors, if any,
                 should be retried.
             timeout (float): The timeout for this request.
@@ -734,7 +714,6 @@ class BinauthzManagementServiceV1Beta1AsyncClient:
 
         # If we have keyword arguments corresponding to fields on the
         # request, apply these.
-
         if parent is not None:
             request.parent = parent
 
@@ -800,7 +779,6 @@ class BinauthzManagementServiceV1Beta1AsyncClient:
                 This corresponds to the ``name`` field
                 on the ``request`` instance; if ``request`` is provided, this
                 should not be set.
-
             retry (google.api_core.retry.Retry): Designation of what errors, if any,
                 should be retried.
             timeout (float): The timeout for this request.
@@ -821,7 +799,6 @@ class BinauthzManagementServiceV1Beta1AsyncClient:
 
         # If we have keyword arguments corresponding to fields on the
         # request, apply these.
-
         if name is not None:
             request.name = name
 
