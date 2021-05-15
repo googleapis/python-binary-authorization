@@ -4,15 +4,15 @@
       "git": {
         "name": ".",
         "remote": "https://github.com/googleapis/python-binary-authorization.git",
-        "sha": "82b3583c8dbc897dbb192ffc2051de5169d934c2"
+        "sha": "996f5010afd4372d625a9accc57647bac46770a8"
       }
     },
     {
       "git": {
         "name": "googleapis",
         "remote": "https://github.com/googleapis/googleapis.git",
-        "sha": "56fc6d43fed71188d7e18f3ca003544646c4ab35",
-        "internalRef": "366346972"
+        "sha": "5a04154e7c7c0e98e0e4085f6e2c67bd5bff6ff8",
+        "internalRef": "371362703"
       }
     }
   ],

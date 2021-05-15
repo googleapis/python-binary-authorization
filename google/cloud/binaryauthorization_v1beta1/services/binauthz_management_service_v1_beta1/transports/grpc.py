@@ -1,4 +1,5 @@
 # -*- coding: utf-8 -*-
+
 # Copyright 2020 Google LLC
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
@@ -13,8 +14,9 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 #
+
 import warnings
-from typing import Callable, Dict, Optional, Sequence, Tuple, Union
+from typing import Callable, Dict, Optional, Sequence, Tuple
 
 from google.api_core import grpc_helpers  # type: ignore
 from google.api_core import gapic_v1  # type: ignore
@@ -27,6 +29,7 @@ import grpc  # type: ignore
 from google.cloud.binaryauthorization_v1beta1.types import resources
 from google.cloud.binaryauthorization_v1beta1.types import service
 from google.protobuf import empty_pb2 as empty  # type: ignore
+
 from .base import BinauthzManagementServiceV1Beta1Transport, DEFAULT_CLIENT_INFO
 
 
@@ -71,8 +74,7 @@ class BinauthzManagementServiceV1Beta1GrpcTransport(
         """Instantiate the transport.
 
         Args:
-            host (Optional[str]):
-                 The hostname to connect to.
+            host (Optional[str]): The hostname to connect to.
             credentials (Optional[google.auth.credentials.Credentials]): The
                 authorization credentials to attach to requests. These
                 credentials identify the application to the service; if none
@@ -213,15 +215,13 @@ class BinauthzManagementServiceV1Beta1GrpcTransport(
             google.api_core.exceptions.DuplicateCredentialArgs: If both ``credentials``
               and ``credentials_file`` are passed.
         """
-
-        self_signed_jwt_kwargs = cls._get_self_signed_jwt_kwargs(host, scopes)
-
+        scopes = scopes or cls.AUTH_SCOPES
         return grpc_helpers.create_channel(
             host,
             credentials=credentials,
             credentials_file=credentials_file,
+            scopes=scopes,
             quota_project_id=quota_project_id,
-            **self_signed_jwt_kwargs,
             **kwargs,
         )
 
@@ -233,9 +233,7 @@ class BinauthzManagementServiceV1Beta1GrpcTransport(
 
     @property
     def get_policy(self) -> Callable[[service.GetPolicyRequest], resources.Policy]:
-        r"""Return a callable for the
-        get policy
-          method over gRPC.
+        r"""Return a callable for the get policy method over gRPC.
 
         A [policy][google.cloud.binaryauthorization.v1beta1.Policy]
         specifies the
@@ -273,9 +271,7 @@ class BinauthzManagementServiceV1Beta1GrpcTransport(
     def update_policy(
         self,
     ) -> Callable[[service.UpdatePolicyRequest], resources.Policy]:
-        r"""Return a callable for the
-        update policy
-          method over gRPC.
+        r"""Return a callable for the update policy method over gRPC.
 
         Creates or updates a project's
         [policy][google.cloud.binaryauthorization.v1beta1.Policy], and
@@ -308,9 +304,7 @@ class BinauthzManagementServiceV1Beta1GrpcTransport(
     def create_attestor(
         self,
     ) -> Callable[[service.CreateAttestorRequest], resources.Attestor]:
-        r"""Return a callable for the
-        create attestor
-          method over gRPC.
+        r"""Return a callable for the create attestor method over gRPC.
 
         Creates an
         [attestor][google.cloud.binaryauthorization.v1beta1.Attestor],
@@ -344,9 +338,7 @@ class BinauthzManagementServiceV1Beta1GrpcTransport(
     def get_attestor(
         self,
     ) -> Callable[[service.GetAttestorRequest], resources.Attestor]:
-        r"""Return a callable for the
-        get attestor
-          method over gRPC.
+        r"""Return a callable for the get attestor method over gRPC.
 
         Gets an
         [attestor][google.cloud.binaryauthorization.v1beta1.Attestor].
@@ -376,9 +368,7 @@ class BinauthzManagementServiceV1Beta1GrpcTransport(
     def update_attestor(
         self,
     ) -> Callable[[service.UpdateAttestorRequest], resources.Attestor]:
-        r"""Return a callable for the
-        update attestor
-          method over gRPC.
+        r"""Return a callable for the update attestor method over gRPC.
 
         Updates an
         [attestor][google.cloud.binaryauthorization.v1beta1.Attestor].
@@ -408,9 +398,7 @@ class BinauthzManagementServiceV1Beta1GrpcTransport(
     def list_attestors(
         self,
     ) -> Callable[[service.ListAttestorsRequest], service.ListAttestorsResponse]:
-        r"""Return a callable for the
-        list attestors
-          method over gRPC.
+        r"""Return a callable for the list attestors method over gRPC.
 
         Lists
         [attestors][google.cloud.binaryauthorization.v1beta1.Attestor].
@@ -436,9 +424,7 @@ class BinauthzManagementServiceV1Beta1GrpcTransport(
 
     @property
     def delete_attestor(self) -> Callable[[service.DeleteAttestorRequest], empty.Empty]:
-        r"""Return a callable for the
-        delete attestor
-          method over gRPC.
+        r"""Return a callable for the delete attestor method over gRPC.
 
         Deletes an
         [attestor][google.cloud.binaryauthorization.v1beta1.Attestor].

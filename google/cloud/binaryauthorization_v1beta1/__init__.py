@@ -1,4 +1,5 @@
 # -*- coding: utf-8 -*-
+
 # Copyright 2020 Google LLC
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
@@ -17,7 +18,6 @@
 from .services.binauthz_management_service_v1_beta1 import (
     BinauthzManagementServiceV1Beta1Client,
 )
-
 from .types.resources import AdmissionRule
 from .types.resources import AdmissionWhitelistPattern
 from .types.resources import Attestor
@@ -33,6 +33,7 @@ from .types.service import ListAttestorsRequest
 from .types.service import ListAttestorsResponse
 from .types.service import UpdateAttestorRequest
 from .types.service import UpdatePolicyRequest
+
 
 __all__ = (
     "AdmissionRule",
