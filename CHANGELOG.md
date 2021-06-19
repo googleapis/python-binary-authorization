@@ -1,5 +1,12 @@
 # Changelog
 
+### [0.2.3](https://www.github.com/googleapis/python-binary-authorization/compare/v0.2.2...v0.2.3) (2021-06-19)
+
+
+### Documentation
+
+* omit mention of Python 2.7 in 'CONTRIBUTING.rst' ([#1127](https://www.github.com/googleapis/python-binary-authorization/issues/1127)) ([#43](https://www.github.com/googleapis/python-binary-authorization/issues/43)) ([726d589](https://www.github.com/googleapis/python-binary-authorization/commit/726d58920de4e97a70cbbe1fd88ac427224ba1ea)), closes [#1126](https://www.github.com/googleapis/python-binary-authorization/issues/1126)
+
 ### [0.2.2](https://www.github.com/googleapis/python-binary-authorization/compare/v0.2.1...v0.2.2) (2021-06-16)
 
 
