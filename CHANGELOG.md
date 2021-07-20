@@ -1,5 +1,12 @@
 # Changelog
 
+### [0.3.1](https://www.github.com/googleapis/python-binary-authorization/compare/v0.3.0...v0.3.1) (2021-07-20)
+
+
+### Bug Fixes
+
+* **deps:** pin 'google-{api,cloud}-core', 'google-auth' to allow 2.x versions ([#55](https://www.github.com/googleapis/python-binary-authorization/issues/55)) ([0ca0dc2](https://www.github.com/googleapis/python-binary-authorization/commit/0ca0dc2671bb8920f56bcbd057b9a13d7b23bf7f))
+
 ## [0.3.0](https://www.github.com/googleapis/python-binary-authorization/compare/v0.2.2...v0.3.0) (2021-06-30)
 
 
