@@ -1,5 +1,18 @@
 # Changelog
 
+## [0.4.0](https://www.github.com/googleapis/python-binary-authorization/compare/v0.3.0...v0.4.0) (2021-07-24)
+
+
+### Features
+
+* add Samples section to CONTRIBUTING.rst ([#56](https://www.github.com/googleapis/python-binary-authorization/issues/56)) ([c641b6c](https://www.github.com/googleapis/python-binary-authorization/commit/c641b6c148779e1952149e5ce5edf62fa0a1c642))
+
+
+### Bug Fixes
+
+* **deps:** pin 'google-{api,cloud}-core', 'google-auth' to allow 2.x versions ([#55](https://www.github.com/googleapis/python-binary-authorization/issues/55)) ([0ca0dc2](https://www.github.com/googleapis/python-binary-authorization/commit/0ca0dc2671bb8920f56bcbd057b9a13d7b23bf7f))
+* enable self signed jwt for grpc ([#61](https://www.github.com/googleapis/python-binary-authorization/issues/61)) ([1a65f17](https://www.github.com/googleapis/python-binary-authorization/commit/1a65f171f677b7ca659ffe98051f432bed342209))
+
 ## [0.3.0](https://www.github.com/googleapis/python-binary-authorization/compare/v0.2.2...v0.3.0) (2021-06-30)
 
 
