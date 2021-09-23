@@ -16,7 +16,7 @@
 import proto  # type: ignore
 
 from google.cloud.binaryauthorization_v1.types import resources
-from grafeas.v1 import attestation_pb2  # type: ignore
+from grafeas.grafeas_v1.types import attestation  # type: ignore
 
 
 __protobuf__ = proto.module(
@@ -198,7 +198,7 @@ class ValidateAttestationOccurrenceRequest(proto.Message):
             [Attestor][google.cloud.binaryauthorization.v1.Attestor] of
             the [occurrence][grafeas.v1.Occurrence], in the format
             ``projects/*/attestors/*``.
-        attestation (grafeas.v1.attestation_pb2.AttestationOccurrence):
+        attestation (grafeas.grafeas_v1.types.attestation.AttestationOccurrence):
             Required. An
             [AttestationOccurrence][grafeas.v1.AttestationOccurrence] to
             be checked that it can be verified by the Attestor. It does
@@ -216,7 +216,7 @@ class ValidateAttestationOccurrenceRequest(proto.Message):
 
     attestor = proto.Field(proto.STRING, number=1,)
     attestation = proto.Field(
-        proto.MESSAGE, number=2, message=attestation_pb2.AttestationOccurrence,
+        proto.MESSAGE, number=2, message=attestation.AttestationOccurrence,
     )
     occurrence_note = proto.Field(proto.STRING, number=3,)
     occurrence_resource_uri = proto.Field(proto.STRING, number=4,)

@@ -43,8 +43,8 @@ from google.cloud.binaryauthorization_v1.services.validation_helper_v1.transport
 )
 from google.cloud.binaryauthorization_v1.types import service
 from google.oauth2 import service_account
-from grafeas.v1 import attestation_pb2  # type: ignore
-from grafeas.v1 import common_pb2  # type: ignore
+from grafeas.grafeas_v1.types import attestation  # type: ignore
+from grafeas.grafeas_v1.types import common  # type: ignore
 import google.auth
 
 
