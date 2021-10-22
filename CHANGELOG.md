@@ -1,5 +1,45 @@
 # Changelog
 
+## [0.6.0](https://www.github.com/googleapis/python-binary-authorization/compare/v0.5.0...v0.6.0) (2021-10-13)
+
+
+### Features
+
+* add trove classifier for python 3.9 and python 3.10 ([#87](https://www.github.com/googleapis/python-binary-authorization/issues/87)) ([73acd98](https://www.github.com/googleapis/python-binary-authorization/commit/73acd98ae81bf43591f7599e70e7f1b264eafceb))
+
+## [0.5.0](https://www.github.com/googleapis/python-binary-authorization/compare/v0.4.1...v0.5.0) (2021-10-08)
+
+
+### Features
+
+* add context manager support in client ([#84](https://www.github.com/googleapis/python-binary-authorization/issues/84)) ([0991f56](https://www.github.com/googleapis/python-binary-authorization/commit/0991f564af01dc8b0172693290a9aba566035848))
+
+### [0.4.1](https://www.github.com/googleapis/python-binary-authorization/compare/v0.4.0...v0.4.1) (2021-09-30)
+
+
+### Bug Fixes
+
+* improper types in pagers generation ([789e8c5](https://www.github.com/googleapis/python-binary-authorization/commit/789e8c5e459bf6a2eafada84fe586ba9524efc05))
+
+## [0.4.0](https://www.github.com/googleapis/python-binary-authorization/compare/v0.3.1...v0.4.0) (2021-09-24)
+
+
+### Features
+
+* add binaryauthorization v1 ([#74](https://www.github.com/googleapis/python-binary-authorization/issues/74)) ([cd828ec](https://www.github.com/googleapis/python-binary-authorization/commit/cd828ec45edb5a297607ea7e9f94c39e68ef2d7d))
+* set binaryauthorization_v1 as the default version ([cd828ec](https://www.github.com/googleapis/python-binary-authorization/commit/cd828ec45edb5a297607ea7e9f94c39e68ef2d7d))
+
+
+### Bug Fixes
+
+* add 'dict' annotation type to 'request' ([7045df0](https://www.github.com/googleapis/python-binary-authorization/commit/7045df0313b0c6f05662745e90c28626d292d64e))
+* require grafeas>=1.1.2, proto-plus>=1.15.0 ([cd828ec](https://www.github.com/googleapis/python-binary-authorization/commit/cd828ec45edb5a297607ea7e9f94c39e68ef2d7d))
+
+
+### Documentation
+
+* fix broken links in README ([cd828ec](https://www.github.com/googleapis/python-binary-authorization/commit/cd828ec45edb5a297607ea7e9f94c39e68ef2d7d))
+
 ### [0.3.1](https://www.github.com/googleapis/python-binary-authorization/compare/v0.3.0...v0.3.1) (2021-07-26)
 
 

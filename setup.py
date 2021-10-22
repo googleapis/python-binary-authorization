@@ -20,7 +20,7 @@ import os
 
 import setuptools  # type: ignore
 
-version = "0.3.1"
+version = "0.6.0"
 
 package_root = os.path.abspath(os.path.dirname(__file__))
 
@@ -62,6 +62,8 @@ setuptools.setup(
         "Programming Language :: Python :: 3.6",
         "Programming Language :: Python :: 3.7",
         "Programming Language :: Python :: 3.8",
+        "Programming Language :: Python :: 3.9",
+        "Programming Language :: Python :: 3.10",
         "Topic :: Internet",
         "Topic :: Software Development :: Libraries :: Python Modules",
     ],
