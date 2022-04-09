@@ -16,7 +16,7 @@
 from collections import OrderedDict
 import os
 import re
-from typing import Dict, Optional, Sequence, Tuple, Type, Union
+from typing import Dict, Mapping, Optional, Sequence, Tuple, Type, Union
 import pkg_resources
 
 from google.api_core import client_options as client_options_lib
@@ -482,7 +482,7 @@ class BinauthzManagementServiceV1Beta1Client(
 
         .. code-block:: python
 
-            from google.cloud import binaryauthorization_v1beta1
+                    from google.cloud import binaryauthorization_v1beta1
 
             def sample_get_policy():
                 # Create a client
@@ -587,7 +587,7 @@ class BinauthzManagementServiceV1Beta1Client(
 
         .. code-block:: python
 
-            from google.cloud import binaryauthorization_v1beta1
+                    from google.cloud import binaryauthorization_v1beta1
 
             def sample_update_policy():
                 # Create a client
@@ -704,7 +704,7 @@ class BinauthzManagementServiceV1Beta1Client(
 
         .. code-block:: python
 
-            from google.cloud import binaryauthorization_v1beta1
+                    from google.cloud import binaryauthorization_v1beta1
 
             def sample_create_attestor():
                 # Create a client
@@ -834,7 +834,7 @@ class BinauthzManagementServiceV1Beta1Client(
 
         .. code-block:: python
 
-            from google.cloud import binaryauthorization_v1beta1
+                    from google.cloud import binaryauthorization_v1beta1
 
             def sample_get_attestor():
                 # Create a client
@@ -936,7 +936,7 @@ class BinauthzManagementServiceV1Beta1Client(
 
         .. code-block:: python
 
-            from google.cloud import binaryauthorization_v1beta1
+                    from google.cloud import binaryauthorization_v1beta1
 
             def sample_update_attestor():
                 # Create a client
@@ -1045,7 +1045,7 @@ class BinauthzManagementServiceV1Beta1Client(
 
         .. code-block:: python
 
-            from google.cloud import binaryauthorization_v1beta1
+                    from google.cloud import binaryauthorization_v1beta1
 
             def sample_list_attestors():
                 # Create a client
@@ -1160,7 +1160,7 @@ class BinauthzManagementServiceV1Beta1Client(
 
         .. code-block:: python
 
-            from google.cloud import binaryauthorization_v1beta1
+                    from google.cloud import binaryauthorization_v1beta1
 
             def sample_delete_attestor():
                 # Create a client
