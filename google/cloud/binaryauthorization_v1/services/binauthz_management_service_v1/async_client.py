@@ -16,7 +16,7 @@
 from collections import OrderedDict
 import functools
 import re
-from typing import Dict, Optional, Sequence, Tuple, Type, Union
+from typing import Dict, Mapping, Optional, Sequence, Tuple, Type, Union
 import pkg_resources
 
 from google.api_core.client_options import ClientOptions
@@ -247,7 +247,6 @@ class BinauthzManagementServiceV1AsyncClient:
         [policy][google.cloud.binaryauthorization.v1.Policy] if the
         project does not have one.
 
-
         .. code-block:: python
 
             from google.cloud import binaryauthorization_v1
@@ -317,8 +316,7 @@ class BinauthzManagementServiceV1AsyncClient:
                 maximum=60.0,
                 multiplier=1.3,
                 predicate=retries.if_exception_type(
-                    core_exceptions.DeadlineExceeded,
-                    core_exceptions.ServiceUnavailable,
+                    core_exceptions.GoogleAPICallError,
                 ),
                 deadline=600.0,
             ),
@@ -360,7 +358,6 @@ class BinauthzManagementServiceV1AsyncClient:
         concurrent policy enforcement (or management!) requests. Returns
         NOT_FOUND if the project does not exist, INVALID_ARGUMENT if the
         request is malformed.
-
 
         .. code-block:: python
 
@@ -438,8 +435,7 @@ class BinauthzManagementServiceV1AsyncClient:
                 maximum=60.0,
                 multiplier=1.3,
                 predicate=retries.if_exception_type(
-                    core_exceptions.DeadlineExceeded,
-                    core_exceptions.ServiceUnavailable,
+                    core_exceptions.GoogleAPICallError,
                 ),
                 deadline=600.0,
             ),
@@ -485,7 +481,6 @@ class BinauthzManagementServiceV1AsyncClient:
         INVALID_ARGUMENT if the request is malformed, ALREADY_EXISTS if
         the [attestor][google.cloud.binaryauthorization.v1.Attestor]
         already exists.
-
 
         .. code-block:: python
 
@@ -616,7 +611,6 @@ class BinauthzManagementServiceV1AsyncClient:
         [attestor][google.cloud.binaryauthorization.v1.Attestor] does
         not exist.
 
-
         .. code-block:: python
 
             from google.cloud import binaryauthorization_v1
@@ -687,8 +681,7 @@ class BinauthzManagementServiceV1AsyncClient:
                 maximum=60.0,
                 multiplier=1.3,
                 predicate=retries.if_exception_type(
-                    core_exceptions.DeadlineExceeded,
-                    core_exceptions.ServiceUnavailable,
+                    core_exceptions.GoogleAPICallError,
                 ),
                 deadline=600.0,
             ),
@@ -727,7 +720,6 @@ class BinauthzManagementServiceV1AsyncClient:
         Returns NOT_FOUND if the
         [attestor][google.cloud.binaryauthorization.v1.Attestor] does
         not exist.
-
 
         .. code-block:: python
 
@@ -806,8 +798,7 @@ class BinauthzManagementServiceV1AsyncClient:
                 maximum=60.0,
                 multiplier=1.3,
                 predicate=retries.if_exception_type(
-                    core_exceptions.DeadlineExceeded,
-                    core_exceptions.ServiceUnavailable,
+                    core_exceptions.GoogleAPICallError,
                 ),
                 deadline=600.0,
             ),
@@ -845,7 +836,6 @@ class BinauthzManagementServiceV1AsyncClient:
     ) -> pagers.ListAttestorsAsyncPager:
         r"""Lists [attestors][google.cloud.binaryauthorization.v1.Attestor].
         Returns INVALID_ARGUMENT if the project does not exist.
-
 
         .. code-block:: python
 
@@ -921,8 +911,7 @@ class BinauthzManagementServiceV1AsyncClient:
                 maximum=60.0,
                 multiplier=1.3,
                 predicate=retries.if_exception_type(
-                    core_exceptions.DeadlineExceeded,
-                    core_exceptions.ServiceUnavailable,
+                    core_exceptions.GoogleAPICallError,
                 ),
                 deadline=600.0,
             ),
@@ -970,7 +959,6 @@ class BinauthzManagementServiceV1AsyncClient:
         Returns NOT_FOUND if the
         [attestor][google.cloud.binaryauthorization.v1.Attestor] does
         not exist.
-
 
         .. code-block:: python
 
@@ -1032,8 +1020,7 @@ class BinauthzManagementServiceV1AsyncClient:
                 maximum=60.0,
                 multiplier=1.3,
                 predicate=retries.if_exception_type(
-                    core_exceptions.DeadlineExceeded,
-                    core_exceptions.ServiceUnavailable,
+                    core_exceptions.GoogleAPICallError,
                 ),
                 deadline=600.0,
             ),
