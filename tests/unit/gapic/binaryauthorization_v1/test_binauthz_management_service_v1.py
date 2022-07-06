@@ -2801,7 +2801,6 @@ def test_binauthz_management_service_v1_transport_auth_adc(transport_class):
     [
         transports.BinauthzManagementServiceV1GrpcTransport,
         transports.BinauthzManagementServiceV1GrpcAsyncIOTransport,
-        transports.BinauthzManagementServiceV1RestTransport,
     ],
 )
 def test_binauthz_management_service_v1_transport_auth_gdch_credentials(

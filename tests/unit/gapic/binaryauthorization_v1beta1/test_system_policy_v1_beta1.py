@@ -1188,7 +1188,6 @@ def test_system_policy_v1_beta1_transport_auth_adc(transport_class):
     [
         transports.SystemPolicyV1Beta1GrpcTransport,
         transports.SystemPolicyV1Beta1GrpcAsyncIOTransport,
-        transports.SystemPolicyV1Beta1RestTransport,
     ],
 )
 def test_system_policy_v1_beta1_transport_auth_gdch_credentials(transport_class):

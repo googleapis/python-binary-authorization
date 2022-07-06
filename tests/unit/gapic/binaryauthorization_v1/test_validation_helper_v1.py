@@ -1091,7 +1091,6 @@ def test_validation_helper_v1_transport_auth_adc(transport_class):
     [
         transports.ValidationHelperV1GrpcTransport,
         transports.ValidationHelperV1GrpcAsyncIOTransport,
-        transports.ValidationHelperV1RestTransport,
     ],
 )
 def test_validation_helper_v1_transport_auth_gdch_credentials(transport_class):

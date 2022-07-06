@@ -1167,7 +1167,6 @@ def test_system_policy_v1_transport_auth_adc(transport_class):
     [
         transports.SystemPolicyV1GrpcTransport,
         transports.SystemPolicyV1GrpcAsyncIOTransport,
-        transports.SystemPolicyV1RestTransport,
     ],
 )
 def test_system_policy_v1_transport_auth_gdch_credentials(transport_class):
