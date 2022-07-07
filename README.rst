@@ -3,7 +3,7 @@ Python Client for Binary Authorization API
 
 |stable| |pypi| |versions|
 
-`Binary Authorization API`_: 
+`Binary Authorization API`_:  is a service on Google Cloud that provides centralized software supply-chain security for applications that run on Google Kubernetes Engine (GKE) and Anthos clusters on VMware
 
 - `Client Library Documentation`_
 - `Product Documentation`_
