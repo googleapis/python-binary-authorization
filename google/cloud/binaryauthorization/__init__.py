@@ -13,6 +13,10 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 #
+from google.cloud.binaryauthorization import gapic_version as package_version
+
+__version__ = package_version.__version__
+
 
 from google.cloud.binaryauthorization_v1.services.binauthz_management_service_v1.client import (
     BinauthzManagementServiceV1Client,
