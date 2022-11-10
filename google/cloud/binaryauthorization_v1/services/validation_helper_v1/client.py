@@ -16,7 +16,18 @@
 from collections import OrderedDict
 import os
 import re
-from typing import Dict, Mapping, Optional, Sequence, Tuple, Type, Union, cast
+from typing import (
+    Dict,
+    Mapping,
+    MutableMapping,
+    MutableSequence,
+    Optional,
+    Sequence,
+    Tuple,
+    Type,
+    Union,
+    cast,
+)
 import pkg_resources
 
 from google.api_core import client_options as client_options_lib
@@ -56,7 +67,7 @@ class ValidationHelperV1ClientMeta(type):
 
     def get_transport_class(
         cls,
-        label: str = None,
+        label: Optional[str] = None,
     ) -> Type[ValidationHelperV1Transport]:
         """Returns an appropriate transport class.
 
@@ -309,7 +320,7 @@ class ValidationHelperV1Client(metaclass=ValidationHelperV1ClientMeta):
         self,
         *,
         credentials: Optional[ga_credentials.Credentials] = None,
-        transport: Union[str, ValidationHelperV1Transport, None] = None,
+        transport: Optional[Union[str, ValidationHelperV1Transport]] = None,
         client_options: Optional[Union[client_options_lib.ClientOptions, dict]] = None,
         client_info: gapic_v1.client_info.ClientInfo = DEFAULT_CLIENT_INFO,
     ) -> None:
@@ -407,10 +418,12 @@ class ValidationHelperV1Client(metaclass=ValidationHelperV1ClientMeta):
 
     def validate_attestation_occurrence(
         self,
-        request: Union[service.ValidateAttestationOccurrenceRequest, dict] = None,
+        request: Optional[
+            Union[service.ValidateAttestationOccurrenceRequest, dict]
+        ] = None,
         *,
         retry: OptionalRetry = gapic_v1.method.DEFAULT,
-        timeout: float = None,
+        timeout: Optional[float] = None,
         metadata: Sequence[Tuple[str, str]] = (),
     ) -> service.ValidateAttestationOccurrenceResponse:
         r"""Returns whether the given Attestation for the given

@@ -16,7 +16,17 @@
 from collections import OrderedDict
 import functools
 import re
-from typing import Dict, Mapping, Optional, Sequence, Tuple, Type, Union
+from typing import (
+    Dict,
+    Mapping,
+    MutableMapping,
+    MutableSequence,
+    Optional,
+    Sequence,
+    Tuple,
+    Type,
+    Union,
+)
 import pkg_resources
 
 from google.api_core.client_options import ClientOptions
@@ -156,9 +166,9 @@ class ValidationHelperV1AsyncClient:
     def __init__(
         self,
         *,
-        credentials: ga_credentials.Credentials = None,
+        credentials: Optional[ga_credentials.Credentials] = None,
         transport: Union[str, ValidationHelperV1Transport] = "grpc_asyncio",
-        client_options: ClientOptions = None,
+        client_options: Optional[ClientOptions] = None,
         client_info: gapic_v1.client_info.ClientInfo = DEFAULT_CLIENT_INFO,
     ) -> None:
         """Instantiates the validation helper v1 client.
@@ -202,10 +212,12 @@ class ValidationHelperV1AsyncClient:
 
     async def validate_attestation_occurrence(
         self,
-        request: Union[service.ValidateAttestationOccurrenceRequest, dict] = None,
+        request: Optional[
+            Union[service.ValidateAttestationOccurrenceRequest, dict]
+        ] = None,
         *,
         retry: OptionalRetry = gapic_v1.method.DEFAULT,
-        timeout: float = None,
+        timeout: Optional[float] = None,
         metadata: Sequence[Tuple[str, str]] = (),
     ) -> service.ValidateAttestationOccurrenceResponse:
         r"""Returns whether the given Attestation for the given
@@ -240,7 +252,7 @@ class ValidationHelperV1AsyncClient:
                 print(response)
 
         Args:
-            request (Union[google.cloud.binaryauthorization_v1.types.ValidateAttestationOccurrenceRequest, dict]):
+            request (Optional[Union[google.cloud.binaryauthorization_v1.types.ValidateAttestationOccurrenceRequest, dict]]):
                 The request object. Request message for
                 [ValidationHelperV1.ValidateAttestationOccurrence][google.cloud.binaryauthorization.v1.ValidationHelperV1.ValidateAttestationOccurrence].
             retry (google.api_core.retry.Retry): Designation of what errors, if any,

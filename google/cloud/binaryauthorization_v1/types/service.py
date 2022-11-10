@@ -13,6 +13,8 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 #
+from typing import MutableMapping, MutableSequence
+
 import proto  # type: ignore
 
 from google.cloud.binaryauthorization_v1.types import resources
@@ -47,7 +49,7 @@ class GetPolicyRequest(proto.Message):
             retrieve, in the format ``projects/*/policy``.
     """
 
-    name = proto.Field(
+    name: str = proto.Field(
         proto.STRING,
         number=1,
     )
@@ -66,7 +68,7 @@ class UpdatePolicyRequest(proto.Message):
             ``projects/*/policy``.
     """
 
-    policy = proto.Field(
+    policy: resources.Policy = proto.Field(
         proto.MESSAGE,
         number=1,
         message=resources.Policy,
@@ -93,15 +95,15 @@ class CreateAttestorRequest(proto.Message):
             ``projects/*/attestors/*``.
     """
 
-    parent = proto.Field(
+    parent: str = proto.Field(
         proto.STRING,
         number=1,
     )
-    attestor_id = proto.Field(
+    attestor_id: str = proto.Field(
         proto.STRING,
         number=2,
     )
-    attestor = proto.Field(
+    attestor: resources.Attestor = proto.Field(
         proto.MESSAGE,
         number=3,
         message=resources.Attestor,
@@ -118,7 +120,7 @@ class GetAttestorRequest(proto.Message):
             retrieve, in the format ``projects/*/attestors/*``.
     """
 
-    name = proto.Field(
+    name: str = proto.Field(
         proto.STRING,
         number=1,
     )
@@ -137,7 +139,7 @@ class UpdateAttestorRequest(proto.Message):
             format ``projects/*/attestors/*``.
     """
 
-    attestor = proto.Field(
+    attestor: resources.Attestor = proto.Field(
         proto.MESSAGE,
         number=1,
         message=resources.Attestor,
@@ -165,15 +167,15 @@ class ListAttestorsRequest(proto.Message):
             method.
     """
 
-    parent = proto.Field(
+    parent: str = proto.Field(
         proto.STRING,
         number=1,
     )
-    page_size = proto.Field(
+    page_size: int = proto.Field(
         proto.INT32,
         number=2,
     )
-    page_token = proto.Field(
+    page_token: str = proto.Field(
         proto.STRING,
         number=3,
     )
@@ -183,7 +185,7 @@ class ListAttestorsResponse(proto.Message):
     r"""Response message for [BinauthzManagementService.ListAttestors][].
 
     Attributes:
-        attestors (Sequence[google.cloud.binaryauthorization_v1.types.Attestor]):
+        attestors (MutableSequence[google.cloud.binaryauthorization_v1.types.Attestor]):
             The list of
             [attestors][google.cloud.binaryauthorization.v1.Attestor].
         next_page_token (str):
@@ -198,12 +200,12 @@ class ListAttestorsResponse(proto.Message):
     def raw_page(self):
         return self
 
-    attestors = proto.RepeatedField(
+    attestors: MutableSequence[resources.Attestor] = proto.RepeatedField(
         proto.MESSAGE,
         number=1,
         message=resources.Attestor,
     )
-    next_page_token = proto.Field(
+    next_page_token: str = proto.Field(
         proto.STRING,
         number=2,
     )
@@ -219,7 +221,7 @@ class DeleteAttestorRequest(proto.Message):
             delete, in the format ``projects/*/attestors/*``.
     """
 
-    name = proto.Field(
+    name: str = proto.Field(
         proto.STRING,
         number=1,
     )
@@ -235,7 +237,7 @@ class GetSystemPolicyRequest(proto.Message):
             associated with a project.
     """
 
-    name = proto.Field(
+    name: str = proto.Field(
         proto.STRING,
         number=1,
     )
@@ -267,20 +269,20 @@ class ValidateAttestationOccurrenceRequest(proto.Message):
             [Occurrence][grafeas.v1.Occurrence].
     """
 
-    attestor = proto.Field(
+    attestor: str = proto.Field(
         proto.STRING,
         number=1,
     )
-    attestation = proto.Field(
+    attestation: attestation_pb2.AttestationOccurrence = proto.Field(
         proto.MESSAGE,
         number=2,
         message=attestation.AttestationOccurrence,
     )
-    occurrence_note = proto.Field(
+    occurrence_note: str = proto.Field(
         proto.STRING,
         number=3,
     )
-    occurrence_resource_uri = proto.Field(
+    occurrence_resource_uri: str = proto.Field(
         proto.STRING,
         number=4,
     )
@@ -304,12 +306,12 @@ class ValidateAttestationOccurrenceResponse(proto.Message):
         VERIFIED = 1
         ATTESTATION_NOT_VERIFIABLE = 2
 
-    result = proto.Field(
+    result: Result = proto.Field(
         proto.ENUM,
         number=1,
         enum=Result,
     )
-    denial_reason = proto.Field(
+    denial_reason: str = proto.Field(
         proto.STRING,
         number=2,
     )

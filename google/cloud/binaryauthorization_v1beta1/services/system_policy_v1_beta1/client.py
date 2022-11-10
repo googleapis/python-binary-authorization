@@ -16,7 +16,18 @@
 from collections import OrderedDict
 import os
 import re
-from typing import Dict, Mapping, Optional, Sequence, Tuple, Type, Union, cast
+from typing import (
+    Dict,
+    Mapping,
+    MutableMapping,
+    MutableSequence,
+    Optional,
+    Sequence,
+    Tuple,
+    Type,
+    Union,
+    cast,
+)
 import pkg_resources
 
 from google.api_core import client_options as client_options_lib
@@ -58,7 +69,7 @@ class SystemPolicyV1Beta1ClientMeta(type):
 
     def get_transport_class(
         cls,
-        label: str = None,
+        label: Optional[str] = None,
     ) -> Type[SystemPolicyV1Beta1Transport]:
         """Returns an appropriate transport class.
 
@@ -326,7 +337,7 @@ class SystemPolicyV1Beta1Client(metaclass=SystemPolicyV1Beta1ClientMeta):
         self,
         *,
         credentials: Optional[ga_credentials.Credentials] = None,
-        transport: Union[str, SystemPolicyV1Beta1Transport, None] = None,
+        transport: Optional[Union[str, SystemPolicyV1Beta1Transport]] = None,
         client_options: Optional[Union[client_options_lib.ClientOptions, dict]] = None,
         client_info: gapic_v1.client_info.ClientInfo = DEFAULT_CLIENT_INFO,
     ) -> None:
@@ -424,11 +435,11 @@ class SystemPolicyV1Beta1Client(metaclass=SystemPolicyV1Beta1ClientMeta):
 
     def get_system_policy(
         self,
-        request: Union[service.GetSystemPolicyRequest, dict] = None,
+        request: Optional[Union[service.GetSystemPolicyRequest, dict]] = None,
         *,
-        name: str = None,
+        name: Optional[str] = None,
         retry: OptionalRetry = gapic_v1.method.DEFAULT,
-        timeout: float = None,
+        timeout: Optional[float] = None,
         metadata: Sequence[Tuple[str, str]] = (),
     ) -> resources.Policy:
         r"""Gets the current system policy in the specified
