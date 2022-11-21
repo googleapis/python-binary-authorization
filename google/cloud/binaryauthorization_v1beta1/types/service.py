@@ -19,7 +19,6 @@ import proto  # type: ignore
 
 from google.cloud.binaryauthorization_v1beta1.types import resources
 
-
 __protobuf__ = proto.module(
     package="google.cloud.binaryauthorization.v1beta1",
     manifest={

@@ -15,11 +15,10 @@
 #
 from typing import MutableMapping, MutableSequence
 
+from grafeas.grafeas_v1.types import attestation  # type: ignore
 import proto  # type: ignore
 
 from google.cloud.binaryauthorization_v1.types import resources
-from grafeas.grafeas_v1.types import attestation  # type: ignore
-
 
 __protobuf__ = proto.module(
     package="google.cloud.binaryauthorization.v1",

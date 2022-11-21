@@ -13,8 +13,8 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 #
-from .client import SystemPolicyV1Beta1Client
 from .async_client import SystemPolicyV1Beta1AsyncClient
+from .client import SystemPolicyV1Beta1Client
 
 __all__ = (
     "SystemPolicyV1Beta1Client",
