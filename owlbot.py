@@ -55,7 +55,7 @@ for library in s.get_staging_dirs(default_version):
         s.replace(
             [library / "google/**/*.py", library / "tests/**/*.py"],
             "from grafeas.grafeas_v1 import attestation_pb2",
-            "from grafeas.grafeas_v1.types import attestation",
+            "import grafeas.grafeas_v1.types",
         )
 
         s.replace(
@@ -67,13 +67,19 @@ for library in s.get_staging_dirs(default_version):
         s.replace(
             [library / "google/**/*.py", library / "tests/**/*.py"],
             "message=attestation_pb2",
-            "message=attestation",
+            "message=grafeas.grafeas_v1.types",
+        )
+
+        s.replace(
+            [library / "google/**/*.py", library / "tests/**/*.py"],
+            "attestation: attestation_pb2.AttestationOccurrence",
+            "attestation: grafeas.grafeas_v1.types.AttestationOccurrence",
         )
 
         s.replace(
             [library / "google/**/*.py", library / "tests/**/*.py"],
             "grafeas.v1.attestation_pb2.AttestationOccurrence",
-            "grafeas.grafeas_v1.types.attestation.AttestationOccurrence",
+            "grafeas.grafeas_v1.types.AttestationOccurrence",
         )
     s.move(library, excludes=["setup.py", "**/gapic_version.py"])
 s.remove_staging_dirs()

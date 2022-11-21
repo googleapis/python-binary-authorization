@@ -31,7 +31,7 @@ import google.auth
 from google.auth import credentials as ga_credentials
 from google.auth.exceptions import MutualTLSChannelError
 from google.oauth2 import service_account
-from grafeas.grafeas_v1.types import attestation  # type: ignore
+import grafeas.grafeas_v1.types  # type: ignore
 from grafeas.grafeas_v1.types import common  # type: ignore
 import grpc
 from grpc.experimental import aio

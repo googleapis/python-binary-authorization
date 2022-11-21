@@ -15,7 +15,7 @@
 #
 from typing import MutableMapping, MutableSequence
 
-from grafeas.grafeas_v1.types import attestation  # type: ignore
+import grafeas.grafeas_v1.types  # type: ignore
 import proto  # type: ignore
 
 from google.cloud.binaryauthorization_v1.types import resources
@@ -252,7 +252,7 @@ class ValidateAttestationOccurrenceRequest(proto.Message):
             [Attestor][google.cloud.binaryauthorization.v1.Attestor] of
             the [occurrence][grafeas.v1.Occurrence], in the format
             ``projects/*/attestors/*``.
-        attestation (grafeas.grafeas_v1.types.attestation.AttestationOccurrence):
+        attestation (grafeas.grafeas_v1.types.AttestationOccurrence):
             Required. An
             [AttestationOccurrence][grafeas.v1.AttestationOccurrence] to
             be checked that it can be verified by the Attestor. It does
@@ -272,10 +272,10 @@ class ValidateAttestationOccurrenceRequest(proto.Message):
         proto.STRING,
         number=1,
     )
-    attestation: attestation_pb2.AttestationOccurrence = proto.Field(
+    attestation: grafeas.grafeas_v1.types.AttestationOccurrence = proto.Field(
         proto.MESSAGE,
         number=2,
-        message=attestation.AttestationOccurrence,
+        message=grafeas.grafeas_v1.types.AttestationOccurrence,
     )
     occurrence_note: str = proto.Field(
         proto.STRING,
