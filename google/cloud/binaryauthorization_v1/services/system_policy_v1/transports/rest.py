@@ -14,24 +14,21 @@
 # limitations under the License.
 #
 
-from google.auth.transport.requests import AuthorizedSession  # type: ignore
-import json  # type: ignore
-import grpc  # type: ignore
-from google.auth.transport.grpc import SslCredentials  # type: ignore
-from google.auth import credentials as ga_credentials  # type: ignore
-from google.api_core import exceptions as core_exceptions
-from google.api_core import retry as retries
-from google.api_core import rest_helpers
-from google.api_core import rest_streaming
-from google.api_core import path_template
-from google.api_core import gapic_v1
-
-from google.protobuf import json_format
-from requests import __version__ as requests_version
 import dataclasses
+import json  # type: ignore
 import re
 from typing import Callable, Dict, List, Optional, Sequence, Tuple, Union
 import warnings
+
+from google.api_core import gapic_v1, path_template, rest_helpers, rest_streaming
+from google.api_core import exceptions as core_exceptions
+from google.api_core import retry as retries
+from google.auth import credentials as ga_credentials  # type: ignore
+from google.auth.transport.grpc import SslCredentials  # type: ignore
+from google.auth.transport.requests import AuthorizedSession  # type: ignore
+from google.protobuf import json_format
+import grpc  # type: ignore
+from requests import __version__ as requests_version
 
 try:
     OptionalRetry = Union[retries.Retry, gapic_v1.method._MethodDefault]
@@ -39,10 +36,10 @@ except AttributeError:  # pragma: NO COVER
     OptionalRetry = Union[retries.Retry, object]  # type: ignore
 
 
-from google.cloud.binaryauthorization_v1.types import service
+from google.cloud.binaryauthorization_v1.types import resources, service
 
-from .base import ValidationHelperV1Transport, DEFAULT_CLIENT_INFO as BASE_DEFAULT_CLIENT_INFO
-
+from .base import DEFAULT_CLIENT_INFO as BASE_DEFAULT_CLIENT_INFO
+from .base import SystemPolicyV1Transport
 
 DEFAULT_CLIENT_INFO = gapic_v1.client_info.ClientInfo(
     gapic_version=BASE_DEFAULT_CLIENT_INFO.gapic_version,
@@ -51,8 +48,8 @@ DEFAULT_CLIENT_INFO = gapic_v1.client_info.ClientInfo(
 )
 
 
-class ValidationHelperV1RestInterceptor:
-    """Interceptor for ValidationHelperV1.
+class SystemPolicyV1RestInterceptor:
+    """Interceptor for SystemPolicyV1.
 
     Interceptors are used to manipulate requests, request metadata, and responses
     in arbitrary ways.
@@ -62,52 +59,57 @@ class ValidationHelperV1RestInterceptor:
     * Stripping extraneous information from responses
 
     These use cases and more can be enabled by injecting an
-    instance of a custom subclass when constructing the ValidationHelperV1RestTransport.
+    instance of a custom subclass when constructing the SystemPolicyV1RestTransport.
 
     .. code-block:: python
-        class MyCustomValidationHelperV1Interceptor(ValidationHelperV1RestInterceptor):
-            def pre_validate_attestation_occurrence(self, request, metadata):
+        class MyCustomSystemPolicyV1Interceptor(SystemPolicyV1RestInterceptor):
+            def pre_get_system_policy(self, request, metadata):
                 logging.log(f"Received request: {request}")
                 return request, metadata
 
-            def post_validate_attestation_occurrence(self, response):
+            def post_get_system_policy(self, response):
                 logging.log(f"Received response: {response}")
                 return response
 
-        transport = ValidationHelperV1RestTransport(interceptor=MyCustomValidationHelperV1Interceptor())
-        client = ValidationHelperV1Client(transport=transport)
+        transport = SystemPolicyV1RestTransport(interceptor=MyCustomSystemPolicyV1Interceptor())
+        client = SystemPolicyV1Client(transport=transport)
 
 
     """
-    def pre_validate_attestation_occurrence(self, request: service.ValidateAttestationOccurrenceRequest, metadata: Sequence[Tuple[str, str]]) -> Tuple[service.ValidateAttestationOccurrenceRequest, Sequence[Tuple[str, str]]]:
-        """Pre-rpc interceptor for validate_attestation_occurrence
+
+    def pre_get_system_policy(
+        self,
+        request: service.GetSystemPolicyRequest,
+        metadata: Sequence[Tuple[str, str]],
+    ) -> Tuple[service.GetSystemPolicyRequest, Sequence[Tuple[str, str]]]:
+        """Pre-rpc interceptor for get_system_policy
 
         Override in a subclass to manipulate the request or metadata
-        before they are sent to the ValidationHelperV1 server.
+        before they are sent to the SystemPolicyV1 server.
         """
         return request, metadata
 
-    def post_validate_attestation_occurrence(self, response: service.ValidateAttestationOccurrenceResponse) -> service.ValidateAttestationOccurrenceResponse:
-        """Post-rpc interceptor for validate_attestation_occurrence
+    def post_get_system_policy(self, response: resources.Policy) -> resources.Policy:
+        """Post-rpc interceptor for get_system_policy
 
         Override in a subclass to manipulate the response
-        after it is returned by the ValidationHelperV1 server but before
+        after it is returned by the SystemPolicyV1 server but before
         it is returned to user code.
         """
         return response
 
 
 @dataclasses.dataclass
-class ValidationHelperV1RestStub:
+class SystemPolicyV1RestStub:
     _session: AuthorizedSession
     _host: str
-    _interceptor: ValidationHelperV1RestInterceptor
+    _interceptor: SystemPolicyV1RestInterceptor
 
 
-class ValidationHelperV1RestTransport(ValidationHelperV1Transport):
-    """REST backend transport for ValidationHelperV1.
+class SystemPolicyV1RestTransport(SystemPolicyV1Transport):
+    """REST backend transport for SystemPolicyV1.
 
-    BinAuthz Attestor verification
+    API for working with the system policy.
 
     This class defines the same methods as the primary client, so the
     primary client can load the underlying transport implementation
@@ -117,20 +119,21 @@ class ValidationHelperV1RestTransport(ValidationHelperV1Transport):
 
     """
 
-    def __init__(self, *,
-            host: str = 'binaryauthorization.googleapis.com',
-            credentials: Optional[ga_credentials.Credentials] = None,
-            credentials_file: Optional[str] = None,
-            scopes: Optional[Sequence[str]] = None,
-            client_cert_source_for_mtls: Optional[Callable[[
-                ], Tuple[bytes, bytes]]] = None,
-            quota_project_id: Optional[str] = None,
-            client_info: gapic_v1.client_info.ClientInfo = DEFAULT_CLIENT_INFO,
-            always_use_jwt_access: Optional[bool] = False,
-            url_scheme: str = 'https',
-            interceptor: Optional[ValidationHelperV1RestInterceptor] = None,
-            api_audience: Optional[str] = None,
-            ) -> None:
+    def __init__(
+        self,
+        *,
+        host: str = "binaryauthorization.googleapis.com",
+        credentials: Optional[ga_credentials.Credentials] = None,
+        credentials_file: Optional[str] = None,
+        scopes: Optional[Sequence[str]] = None,
+        client_cert_source_for_mtls: Optional[Callable[[], Tuple[bytes, bytes]]] = None,
+        quota_project_id: Optional[str] = None,
+        client_info: gapic_v1.client_info.ClientInfo = DEFAULT_CLIENT_INFO,
+        always_use_jwt_access: Optional[bool] = False,
+        url_scheme: str = "https",
+        interceptor: Optional[SystemPolicyV1RestInterceptor] = None,
+        api_audience: Optional[str] = None,
+    ) -> None:
         """Instantiate the transport.
 
         Args:
@@ -169,7 +172,9 @@ class ValidationHelperV1RestTransport(ValidationHelperV1Transport):
         # credentials object
         maybe_url_match = re.match("^(?P<scheme>http(?:s)?://)?(?P<host>.*)$", host)
         if maybe_url_match is None:
-            raise ValueError(f"Unexpected hostname structure: {host}")  # pragma: NO COVER
+            raise ValueError(
+                f"Unexpected hostname structure: {host}"
+            )  # pragma: NO COVER
 
         url_match_items = maybe_url_match.groupdict()
 
@@ -180,39 +185,44 @@ class ValidationHelperV1RestTransport(ValidationHelperV1Transport):
             credentials=credentials,
             client_info=client_info,
             always_use_jwt_access=always_use_jwt_access,
-            api_audience=api_audience
+            api_audience=api_audience,
         )
         self._session = AuthorizedSession(
-            self._credentials, default_host=self.DEFAULT_HOST)
+            self._credentials, default_host=self.DEFAULT_HOST
+        )
         if client_cert_source_for_mtls:
             self._session.configure_mtls_channel(client_cert_source_for_mtls)
-        self._interceptor = interceptor or ValidationHelperV1RestInterceptor()
+        self._interceptor = interceptor or SystemPolicyV1RestInterceptor()
         self._prep_wrapped_messages(client_info)
 
-    class _ValidateAttestationOccurrence(ValidationHelperV1RestStub):
+    class _GetSystemPolicy(SystemPolicyV1RestStub):
         def __hash__(self):
-            return hash("ValidateAttestationOccurrence")
+            return hash("GetSystemPolicy")
 
-        __REQUIRED_FIELDS_DEFAULT_VALUES: Dict[str, str] =  {
-        }
+        __REQUIRED_FIELDS_DEFAULT_VALUES: Dict[str, str] = {}
 
         @classmethod
         def _get_unset_required_fields(cls, message_dict):
-            return {k: v for k, v in cls.__REQUIRED_FIELDS_DEFAULT_VALUES.items() if k not in message_dict}
+            return {
+                k: v
+                for k, v in cls.__REQUIRED_FIELDS_DEFAULT_VALUES.items()
+                if k not in message_dict
+            }
 
-        def __call__(self,
-                request: service.ValidateAttestationOccurrenceRequest, *,
-                retry: OptionalRetry=gapic_v1.method.DEFAULT,
-                timeout: Optional[float]=None,
-                metadata: Sequence[Tuple[str, str]]=(),
-                ) -> service.ValidateAttestationOccurrenceResponse:
-            r"""Call the validate attestation
-        occurrence method over HTTP.
+        def __call__(
+            self,
+            request: service.GetSystemPolicyRequest,
+            *,
+            retry: OptionalRetry = gapic_v1.method.DEFAULT,
+            timeout: Optional[float] = None,
+            metadata: Sequence[Tuple[str, str]] = (),
+        ) -> resources.Policy:
+            r"""Call the get system policy method over HTTP.
 
             Args:
-                request (~.service.ValidateAttestationOccurrenceRequest):
-                    The request object. Request message for
-                [ValidationHelperV1.ValidateAttestationOccurrence][google.cloud.binaryauthorization.v1.ValidationHelperV1.ValidateAttestationOccurrence].
+                request (~.service.GetSystemPolicyRequest):
+                    The request object. Request to read the current system
+                policy.
 
                 retry (google.api_core.retry.Retry): Designation of what errors, if any,
                     should be retried.
@@ -221,52 +231,48 @@ class ValidationHelperV1RestTransport(ValidationHelperV1Transport):
                     sent along with the request as metadata.
 
             Returns:
-                ~.service.ValidateAttestationOccurrenceResponse:
-                    Response message for
-                [ValidationHelperV1.ValidateAttestationOccurrence][google.cloud.binaryauthorization.v1.ValidationHelperV1.ValidateAttestationOccurrence].
+                ~.resources.Policy:
+                    A [policy][google.cloud.binaryauthorization.v1.Policy]
+                for container image binary authorization.
 
             """
 
-            http_options: List[Dict[str, str]] = [{
-                'method': 'post',
-                'uri': '/v1/{attestor=projects/*/attestors/*}:validateAttestationOccurrence',
-                'body': '*',
-            },
+            http_options: List[Dict[str, str]] = [
+                {
+                    "method": "get",
+                    "uri": "/v1/{name=locations/*/policy}",
+                },
             ]
-            request, metadata = self._interceptor.pre_validate_attestation_occurrence(request, metadata)
-            pb_request = service.ValidateAttestationOccurrenceRequest.pb(request)
+            request, metadata = self._interceptor.pre_get_system_policy(
+                request, metadata
+            )
+            pb_request = service.GetSystemPolicyRequest.pb(request)
             transcoded_request = path_template.transcode(http_options, pb_request)
 
-            # Jsonify the request body
-
-            body = json_format.MessageToJson(
-                transcoded_request['body'],
-                including_default_value_fields=False,
-                use_integers_for_enums=True
-            )
-            uri = transcoded_request['uri']
-            method = transcoded_request['method']
+            uri = transcoded_request["uri"]
+            method = transcoded_request["method"]
 
             # Jsonify the query params
-            query_params = json.loads(json_format.MessageToJson(
-                transcoded_request['query_params'],
-                including_default_value_fields=False,
-                use_integers_for_enums=True,
-            ))
+            query_params = json.loads(
+                json_format.MessageToJson(
+                    transcoded_request["query_params"],
+                    including_default_value_fields=False,
+                    use_integers_for_enums=True,
+                )
+            )
             query_params.update(self._get_unset_required_fields(query_params))
 
             query_params["$alt"] = "json;enum-encoding=int"
 
             # Send the request
             headers = dict(metadata)
-            headers['Content-Type'] = 'application/json'
+            headers["Content-Type"] = "application/json"
             response = getattr(self._session, method)(
                 "{host}{uri}".format(host=self._host, uri=uri),
                 timeout=timeout,
                 headers=headers,
                 params=rest_helpers.flatten_query_params(query_params, strict=True),
-                data=body,
-                )
+            )
 
             # In case of error, raise the appropriate core_exceptions.GoogleAPICallError exception
             # subclass.
@@ -274,20 +280,20 @@ class ValidationHelperV1RestTransport(ValidationHelperV1Transport):
                 raise core_exceptions.from_http_response(response)
 
             # Return the response
-            resp = service.ValidateAttestationOccurrenceResponse()
-            pb_resp = service.ValidateAttestationOccurrenceResponse.pb(resp)
+            resp = resources.Policy()
+            pb_resp = resources.Policy.pb(resp)
 
             json_format.Parse(response.content, pb_resp, ignore_unknown_fields=True)
-            resp = self._interceptor.post_validate_attestation_occurrence(resp)
+            resp = self._interceptor.post_get_system_policy(resp)
             return resp
 
     @property
-    def validate_attestation_occurrence(self) -> Callable[
-            [service.ValidateAttestationOccurrenceRequest],
-            service.ValidateAttestationOccurrenceResponse]:
+    def get_system_policy(
+        self,
+    ) -> Callable[[service.GetSystemPolicyRequest], resources.Policy]:
         # The return type is fine, but mypy isn't sophisticated enough to determine what's going on here.
         # In C++ this would require a dynamic_cast
-        return self._ValidateAttestationOccurrence(self._session, self._host, self._interceptor) # type: ignore
+        return self._GetSystemPolicy(self._session, self._host, self._interceptor)  # type: ignore
 
     @property
     def kind(self) -> str:
@@ -297,6 +303,4 @@ class ValidationHelperV1RestTransport(ValidationHelperV1Transport):
         self._session.close()
 
 
-__all__=(
-    'ValidationHelperV1RestTransport',
-)
+__all__ = ("SystemPolicyV1RestTransport",)
